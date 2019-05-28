@@ -167,6 +167,7 @@ function togglePlayer() {
     } else {
         firstPlayer = true;
     }
+
 }
 
 // all img elements, probably don't need this though 
@@ -256,7 +257,7 @@ function checkWin() {
     }
 
     if (gameWon === true) {
-        resetGame();
+        setTimeout(resetGame, 100);
     }
 
 };

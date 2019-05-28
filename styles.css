@@ -76,3 +76,15 @@ div[id*="cell"] img.hidden {
     border-top: solid black 10px;
     border-left: solid black 10px;
 }
+
+.player-container p:first-child{
+    width: 50%;
+    float: left;
+    text-align: center;
+}
+
+.player-container p:nth-child(2){
+    width: 50%;
+    float: left;
+    text-align: center;
+}
