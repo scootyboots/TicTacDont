@@ -137,6 +137,7 @@ function init() {
 
 var firstPlayer = true
 
+// html element of each cell in the grid put into variables
 var cell_1_1 = document.querySelector('div[id="cell-1-1"]')
 var cell_1_2 = document.querySelector('div[id="cell-1-2"]')
 var cell_1_3 = document.querySelector('div[id="cell-1-3"]')
@@ -151,19 +152,13 @@ var cell_3_3 = document.querySelector('div[id="cell-3-3"]')
 
 var allCells = [cell_1_1, cell_1_2, cell_1_3, cell_2_1, cell_2_2, cell_2_3, cell_3_1, cell_3_2, cell_3_3]
 
-
+// adds a click event listener to each cell in the grid
 allCells.map((cell) => {
 
     cell.addEventListener('click', (event) => {changeImg(cell)})
 
 });
 
-function init() {
-
-    firstPlayer = true;
-    allCells.forEach((cur) => cur.querySelector('img').setAttribute('src', ''));
-
-}
 
 function togglePlayer() {
 
@@ -190,17 +185,18 @@ function togglePlayer() {
 
 // var allCellImgs = [imgCell_1_1, imgCell_1_2, imgCell_1_3, imgCell_2_1, imgCell_2_2, imgCell_2_3, imgCell_3_1, imgCell_3_2, imgCell_3_3]
 
+// displays either an x or o based on if first player or not
 function changeImg(cell) {
 
     if (firstPlayer === true) {
 
         cell.querySelector('img').setAttribute('src', 'x.svg')
-        console.log('trying to add x')
+        cell.querySelector('img').setAttribute('class', 'display')
 
     } else {
         
         cell.querySelector('img').setAttribute('src', 'o.svg')
-        console.log('trying to add o')
+        cell.querySelector('img').setAttribute('class', 'display')
 
     }
 
@@ -223,6 +219,7 @@ function resetGame() {
 
 }
 
+// puts all possible win condition combinations into variables
 var rowWin1 = [cell_1_1, cell_1_2, cell_1_3]
 var rowWin2 = [cell_2_1, cell_2_2, cell_2_3]
 var rowWin3 = [cell_3_1, cell_3_2, cell_3_3]
@@ -236,6 +233,7 @@ var diagWin2 = [cell_1_3, cell_2_2, cell_3_1]
 
 var allWinConditions = [rowWin1, rowWin2, rowWin3, colWin1, colWin2, colWin3, diagWin1, diagWin2]
 
+// loops over the array of all possible win combinations and stops when all three cells in that win condition have the same src
 function checkWin() {
     
     var gameWon = false
@@ -262,4 +260,18 @@ function checkWin() {
     }
 
 };
+
+
+function init() {
+
+    firstPlayer = true;
+    allCells.forEach((cur) => cur.querySelector('img').setAttribute('class', 'hidden'));
+
+    // populates the src of each img with a progressive number so that the game won't be automatically won on the first click after init 
+    for (let i = 0; i < allCells.length; i++) {
+        const element = allCells[i];
+        element.querySelector('img').setAttribute('src', `${i.toString()}.svg`)
+    }
+
+}
 

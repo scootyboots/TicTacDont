@@ -16,10 +16,15 @@ div[id*="cell"] {
     height: 200px;
 }
 
-div[id*="cell"] img {
+.display{
     margin: 15%;
+    display: inline;
 }
 
+div[id*="cell"] img.hidden {
+    margin: 15%;
+    display: none;
+}
 
 #cell-1-1{
     border-bottom: solid black 10px;
