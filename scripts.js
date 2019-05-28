@@ -159,13 +159,23 @@ allCells.map((cell) => {
 
 });
 
+let circle = document.querySelector('.circle')
 
 function togglePlayer() {
 
     if (firstPlayer === true) {
         firstPlayer = false;
+
+        // switched the circle which indicates the player's turn
+        circle.classList.add('slide-right')
+        circle.classList.remove('slide-left')
+
     } else {
         firstPlayer = true;
+
+        circle.classList.add('slide-left')
+        circle.classList.remove('slide-right')
+
     }
 
 }
@@ -273,6 +283,10 @@ function init() {
         const element = allCells[i];
         element.querySelector('img').setAttribute('src', `${i.toString()}.svg`)
     }
+
+    // resets animation classes on turn indicator circle
+    circle.classList.remove('slide-right')
+    circle.classList.remove('slide-left')
 
 }
 
