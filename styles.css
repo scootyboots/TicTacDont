@@ -5,15 +5,15 @@
 
 .container {
     margin: auto;
-    max-width: 640px;
-    margin-top: 5%;
+    max-width: 490px;
+    margin-top: 3%;
 }
 
 div[id*="cell"] {
     display: inline-block;
     float: left;
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     cursor: pointer;
 }
 
@@ -81,7 +81,7 @@ div[id*="cell"] img.hidden {
 .player-container{
     display: inline-block;
     width: 100%;
-    padding: 10% 0;
+    padding: 5% 0;
     margin: auto;
 }
 
@@ -103,10 +103,10 @@ div[id*="cell"] img.hidden {
 .circle-path{
     position: relative;
     overflow: hidden;
-    width: 360px;
+    width: 290px;
     height: 1em;
     margin: auto;
-    margin-bottom: 15px;
+    margin-bottom: 2%;
 }
 
 .circle{
@@ -236,8 +236,8 @@ class for slide forward, not working right now
               transform: translateX(0);
     }
     100% {
-      -webkit-transform: translateX(328px);
-              transform: translateX(328px);
+      -webkit-transform: translateX(245px);
+              transform: translateX(245px);
     }
   }
   @keyframes slide-right {
@@ -246,15 +246,15 @@ class for slide forward, not working right now
               transform: translateX(0);
     }
     100% {
-      -webkit-transform: translateX(328px);
-              transform: translateX(328px);
+      -webkit-transform: translateX(245px);
+              transform: translateX(245px);
     }
   }
 
   @-webkit-keyframes slide-left {
     0% {
-      -webkit-transform: translateX(328px);
-              transform: translateX(328px);
+      -webkit-transform: translateX(245px);
+              transform: translateX(245px);
     }
     100% {
       -webkit-transform: translateX(0px);
@@ -263,8 +263,8 @@ class for slide forward, not working right now
   }
   @keyframes slide-left {
     0% {
-      -webkit-transform: translateX(328px);
-              transform: translateX(328px);
+      -webkit-transform: translateX(245px);
+              transform: translateX(245px);
     }
     100% {
       -webkit-transform: translateX(0px);
