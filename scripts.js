@@ -42,8 +42,8 @@ function applyMove(cell) {
 };
 
 const circle = document.querySelector('.circle')
-const player1 = document.querySelector('p.left')
-const player2 = document.querySelector('p.right')
+const playerX = document.querySelector('p.left')
+const playerO = document.querySelector('p.right')
 
 function togglePlayer() {
 
@@ -54,8 +54,8 @@ function togglePlayer() {
         circle.classList.add('slide-right')
         circle.classList.remove('slide-left')
 
-        player1.classList.add('inactive')
-        player2.classList.remove('inactive')
+        playerX.classList.add('inactive')
+        playerO.classList.remove('inactive')
 
     } else {
         firstPlayer = true;
@@ -63,8 +63,8 @@ function togglePlayer() {
         circle.classList.add('slide-left')
         circle.classList.remove('slide-right')
 
-        player2.classList.add('inactive')
-        player1.classList.remove('inactive')
+        playerO.classList.add('inactive')
+        playerX.classList.remove('inactive')
 
     }
 
@@ -153,7 +153,7 @@ function applyFadeOut() {
 function resetGame() {
 
     // logic is backwards because firstPlayer var has already been switched over when reset game func runs 
-    var winner = firstPlayer === true ? '2' : '1';
+    var winner = firstPlayer === true ? 'O' : 'X';
 
     alert(`Player ${winner} has won! Play again?`)
 
@@ -188,8 +188,8 @@ function init() {
     circle.classList.remove('slide-right', 'slide-left')
     circle.classList.add('slide-left')
 
-    player2.classList.add('inactive')
-    player1.classList.remove('inactive')
+    playerO.classList.add('inactive')
+    playerX.classList.remove('inactive')
 
 }
 
