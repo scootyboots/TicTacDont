@@ -18,49 +18,11 @@ var allCells = [cell_1_1, cell_1_2, cell_1_3, cell_2_1, cell_2_2, cell_2_3, cell
 // adds a click event listener to each cell in the grid
 allCells.map((cell) => {
 
-    cell.addEventListener('click', (event) => {changeImg(cell)})
+    cell.addEventListener('click', (event) => {applyMove(cell)})
 
 });
 
-let circle = document.querySelector('.circle')
-
-function togglePlayer() {
-
-    if (firstPlayer === true) {
-        firstPlayer = false;
-
-        // switched the circle which indicates the player's turn
-        circle.classList.add('slide-right')
-        circle.classList.remove('slide-left')
-
-    } else {
-        firstPlayer = true;
-
-        circle.classList.add('slide-left')
-        circle.classList.remove('slide-right')
-
-    }
-
-}
-
-// all img elements, probably don't need this though 
-
-// var imgCell_1_1 = cell_1_1.querySelector('img')
-// var imgCell_1_2 = cell_1_2.querySelector('img')
-// var imgCell_1_3 = cell_1_3.querySelector('img')
-
-// var imgCell_2_1 = cell_2_1.querySelector('img')
-// var imgCell_2_2 = cell_2_2.querySelector('img')
-// var imgCell_2_3 = cell_2_3.querySelector('img')
-
-// var imgCell_3_1 = cell_3_1.querySelector('img')
-// var imgCell_3_2 = cell_3_2.querySelector('img')
-// var imgCell_3_3 = cell_3_3.querySelector('img')
-
-// var allCellImgs = [imgCell_1_1, imgCell_1_2, imgCell_1_3, imgCell_2_1, imgCell_2_2, imgCell_2_3, imgCell_3_1, imgCell_3_2, imgCell_3_3]
-
-// displays either an x or o based on if first player or not
-function changeImg(cell) {
+function applyMove(cell) {
 
     if (firstPlayer === true) {
 
@@ -79,43 +41,24 @@ function changeImg(cell) {
 
 };
 
-function applyFadeOut() {
+const circle = document.querySelector('.circle')
 
-    cell_1_1.querySelector('img').classList.add('fade-out', 'hide-opacity', 'box-slide-tl');
-    cell_1_2.querySelector('img').classList.add('fade-out', 'hide-opacity', 'box-slide-top');
-    cell_1_3.querySelector('img').classList.add('fade-out', 'hide-opacity', 'box-slide-tr');
+function togglePlayer() {
 
-    cell_2_1.querySelector('img').classList.add('fade-out', 'hide-opacity', 'box-slide-left');
-    cell_2_2.querySelector('img').classList.add('fade-out', 'hide-opacity');
-    cell_2_3.querySelector('img').classList.add('fade-out', 'hide-opacity', 'box-slide-right');
+    if (firstPlayer === true) {
+        firstPlayer = false;
 
-    cell_3_1.querySelector('img').classList.add('fade-out', 'hide-opacity', 'box-slide-bl');
-    cell_3_2.querySelector('img').classList.add('fade-out', 'hide-opacity', 'box-slide-bottom');
-    cell_3_3.querySelector('img').classList.add('fade-out', 'hide-opacity', 'box-slide-br');
+        // switches the animation for the circle which indicates the player's turn
+        circle.classList.add('slide-right')
+        circle.classList.remove('slide-left')
 
-};
+    } else {
+        firstPlayer = true;
 
-function resetGame() {
+        circle.classList.add('slide-left')
+        circle.classList.remove('slide-right')
 
-    var winner = firstPlayer === true ? '1' : '2';
-
-    alert(`Player ${winner} has won! Play again?`)
-
-    // applies animation to fade out existing moves 
-    applyFadeOut();
-
-    setTimeout(init, 450);
-
-}
-
-function resetTieGame() {
-
-    alert(`Looks like it's a tie! Play again?`)
-
-    // applies animation to fade out existing moves 
-    applyFadeOut();
-
-    setTimeout(init, 450);
+    }
 
 }
 
@@ -159,6 +102,7 @@ function checkWin() {
         setTimeout(resetGame, 100);
     }
 
+    // looks for a tie game scinario where every cell is filled but no win condition met
     if (gameWon === false) {
 
         let counter = 0
@@ -180,6 +124,45 @@ function checkWin() {
     }
 
 };
+
+// applies animation to fade out existing moves 
+function applyFadeOut() {
+
+    cell_1_1.querySelector('img').classList.add('fade-out', 'hide-opacity', 'box-slide-tl');
+    cell_1_2.querySelector('img').classList.add('fade-out', 'hide-opacity', 'box-slide-top');
+    cell_1_3.querySelector('img').classList.add('fade-out', 'hide-opacity', 'box-slide-tr');
+
+    cell_2_1.querySelector('img').classList.add('fade-out', 'hide-opacity', 'box-slide-left');
+    cell_2_2.querySelector('img').classList.add('fade-out', 'hide-opacity');
+    cell_2_3.querySelector('img').classList.add('fade-out', 'hide-opacity', 'box-slide-right');
+
+    cell_3_1.querySelector('img').classList.add('fade-out', 'hide-opacity', 'box-slide-bl');
+    cell_3_2.querySelector('img').classList.add('fade-out', 'hide-opacity', 'box-slide-bottom');
+    cell_3_3.querySelector('img').classList.add('fade-out', 'hide-opacity', 'box-slide-br');
+
+};
+
+function resetGame() {
+
+    var winner = firstPlayer === true ? '1' : '2';
+
+    alert(`Player ${winner} has won! Play again?`)
+
+    applyFadeOut();
+
+    setTimeout(init, 450);
+
+}
+
+function resetTieGame() {
+
+    alert(`Looks like it's a tie! Play again?`)
+
+    applyFadeOut();
+
+    setTimeout(init, 450);
+
+}
 
 function init() {
 
