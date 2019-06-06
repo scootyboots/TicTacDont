@@ -152,10 +152,10 @@ just add fade-out and hide-opacity classes to an element to get it to disapear
 
 .half-fade {
 
-    -webkit-transition: opacity 650ms ease-in-out;
-    -moz-transition: opacity 650ms ease-in-out;
-    -ms-transition: opacity 650ms ease-in-out;
-    -o-transition: opacity 650ms ease-in-out;
+    -webkit-transition: opacity 700ms ease-in-out;
+    -moz-transition: opacity 700ms ease-in-out;
+    -ms-transition: opacity 700ms ease-in-out;
+    -o-transition: opacity 700ms ease-in-out;
     opacity: 1;
 }
 
