@@ -152,7 +152,8 @@ function applyFadeOut() {
 
 function resetGame() {
 
-    var winner = firstPlayer === true ? '1' : '2';
+    // logic is backwards because firstPlayer var has already been switched over when reset game func runs 
+    var winner = firstPlayer === true ? '2' : '1';
 
     alert(`Player ${winner} has won! Play again?`)
 
