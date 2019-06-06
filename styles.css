@@ -90,15 +90,6 @@ div[id*="cell"] img.hidden {
     font-size: 24px;
     text-transform: uppercase;
     letter-spacing: 0.5em;
-}
-
-.player-container p:first-child{
-    width: 50%;
-    float: left;
-    text-align: center;
-}
-
-.player-container p:nth-child(2){
     width: 50%;
     float: left;
     text-align: center;
@@ -153,6 +144,19 @@ just add fade-out and hide-opacity classes to an element to get it to disapear
     -ms-transition: opacity 350ms ease-in-out;
     -o-transition: opacity 350ms ease-in-out;
      opacity: 1;
+}
+
+.inactive.half-fade{
+    opacity: 0.3;
+}
+
+.half-fade {
+
+    -webkit-transition: opacity 650ms ease-in-out;
+    -moz-transition: opacity 650ms ease-in-out;
+    -ms-transition: opacity 650ms ease-in-out;
+    -o-transition: opacity 650ms ease-in-out;
+    opacity: 1;
 }
 
 .box-slide-right {

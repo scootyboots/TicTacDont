@@ -42,6 +42,8 @@ function applyMove(cell) {
 };
 
 const circle = document.querySelector('.circle')
+const player1 = document.querySelector('p.left')
+const player2 = document.querySelector('p.right')
 
 function togglePlayer() {
 
@@ -52,11 +54,17 @@ function togglePlayer() {
         circle.classList.add('slide-right')
         circle.classList.remove('slide-left')
 
+        player1.classList.add('inactive')
+        player2.classList.remove('inactive')
+
     } else {
         firstPlayer = true;
 
         circle.classList.add('slide-left')
         circle.classList.remove('slide-right')
+
+        player2.classList.add('inactive')
+        player1.classList.remove('inactive')
 
     }
 
@@ -175,9 +183,12 @@ function init() {
         element.querySelector('img').setAttribute('src', `${i.toString()}.svg`)
     }
 
-    // resets animation classes on turn indicator circle
+    // resets animation classes on turn indicator circle and player
     circle.classList.remove('slide-right', 'slide-left')
     circle.classList.add('slide-left')
+
+    player2.classList.add('inactive')
+    player1.classList.remove('inactive')
 
 }
 
