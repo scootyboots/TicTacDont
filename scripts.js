@@ -79,13 +79,8 @@ function changeImg(cell) {
 
 };
 
-function resetGame() {
+function applyFadeOut() {
 
-    var winner = firstPlayer === true ? '1' : '2';
-
-    alert(`Player ${winner} has won! Play again?`)
-
-    // applies animation to fade out existing moves 
     cell_1_1.querySelector('img').classList.add('fade-out', 'hide-opacity', 'box-slide-tl');
     cell_1_2.querySelector('img').classList.add('fade-out', 'hide-opacity', 'box-slide-top');
     cell_1_3.querySelector('img').classList.add('fade-out', 'hide-opacity', 'box-slide-tr');
@@ -97,6 +92,28 @@ function resetGame() {
     cell_3_1.querySelector('img').classList.add('fade-out', 'hide-opacity', 'box-slide-bl');
     cell_3_2.querySelector('img').classList.add('fade-out', 'hide-opacity', 'box-slide-bottom');
     cell_3_3.querySelector('img').classList.add('fade-out', 'hide-opacity', 'box-slide-br');
+
+};
+
+function resetGame() {
+
+    var winner = firstPlayer === true ? '1' : '2';
+
+    alert(`Player ${winner} has won! Play again?`)
+
+    // applies animation to fade out existing moves 
+    applyFadeOut();
+
+    setTimeout(init, 450);
+
+}
+
+function resetTieGame() {
+
+    alert(`Looks like it's a tie! Play again?`)
+
+    // applies animation to fade out existing moves 
+    applyFadeOut();
 
     setTimeout(init, 450);
 
@@ -142,8 +159,27 @@ function checkWin() {
         setTimeout(resetGame, 100);
     }
 
-};
+    if (gameWon === false) {
 
+        let counter = 0
+        // loop through allCells and tick up a counter if src on img is x or o
+        for (let i = 0; i < allCells.length; i++) {
+    
+            let curSrc = allCells[i].firstChild.getAttribute("src")
+    
+            if (curSrc === "x.svg" || curSrc === "o.svg") {
+                counter++
+            }
+    
+        }
+    
+        if (counter === 9) {
+            setTimeout(resetTieGame, 100);
+        }    
+
+    }
+
+};
 
 function init() {
 
